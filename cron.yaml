@@ -1,0 +1,6 @@
+cron:
+  - description: "My first cron job on google cloud platform"
+    url: /cron
+    # schedule: every 1 minutes
+    schedule: every monday 09:00
+    target: cron

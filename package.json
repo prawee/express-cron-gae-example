@@ -1,0 +1,16 @@
+{
+  "name": "gcp-cronjob",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": {
+    "name": "Prawee Wongsa",
+    "email": "prawee@hotmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

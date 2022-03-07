@@ -1,0 +1,5 @@
+dispatch:
+  - url: "*/cron"
+    service: cron
+  # - url: "*/cron"
+  #   service: admin
