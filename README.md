@@ -2,24 +2,6 @@
 
 How to create `cronjob` with Express on Google App Engine
 
-## Development
-
-### Via clone
-
-```bash
-git clone https://github.com/prawee/express-gae-example.git
-cd express-gae-example
-yarn
-```
-
-### Running
-
-```bash
-cp env.dist .env
-# update environment variable
-yarn start
-```
-
 ## Deploy
 
 ### Application Task
