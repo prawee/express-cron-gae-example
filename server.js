@@ -2,7 +2,7 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-08 01:29:25
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-15 18:08:50
+ * @ Modified time: 2022-03-15 19:06:10
  * @ Description: template for express with cron on gcp
  */
 
@@ -26,7 +26,7 @@ let count = 0
  */
 app.use(express.json())
 // app.use(winLogger)
-app.use(logger())
+app.use(logger({ name: 'schedule' }))
 
 /**
  * route
@@ -41,7 +41,7 @@ app.get("/cron", (req, res) => {
 })
 
 app.get("/user/:email", (req, res) => {
-  console.info(`[info]: ${JSON.stringify(req.params)}`)
+  // console.info(`[info]: ${JSON.stringify(req.params)}`)
   const query = "select id, name from users where email = ?"
   
   pool.query(query, [req.params.email], (error, results) => {
