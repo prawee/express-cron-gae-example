@@ -2,7 +2,7 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-08 01:29:25
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-09 01:39:34
+ * @ Modified time: 2022-03-15 17:59:11
  * @ Description: template for express with cron on gcp
  */
 
@@ -13,6 +13,7 @@ require("dotenv").config()
 const express = require("express")
 const mysql = require("mysql")
 const app = express()
+// const winLogger = require("./logger/winston")
 
 /**
  * global variable
@@ -23,6 +24,7 @@ let count = 0
  * using middleware
  */
 app.use(express.json())
+// app.use(winLogger)
 
 /**
  * route
