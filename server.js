@@ -2,7 +2,7 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-08 01:29:25
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-16 10:58:00
+ * @ Modified time: 2022-03-16 14:23:13
  * @ Description: template for express with cron on gcp
  */
 
@@ -14,7 +14,8 @@ require('@google-cloud/trace-agent').start();
 const express = require("express")
 const mysql = require("mysql")
 const app = express()
-const winLogger = require("./logger/winston")
+const logger = require("./logger/winston")
+// const testLogger = require("./logger/test")
 // const logger = require("./logger")
 
 /**
@@ -26,7 +27,7 @@ let count = 0
  * using middleware
  */
 app.use(express.json())
-app.use(winLogger())
+// app.use(testLogger({ logger }))
 // app.use(logger({ name: 'schedule' }))
 
 /**
@@ -37,7 +38,11 @@ app.get("/", (req, res) => {
 })
 
 app.get("/cron", (req, res) => {
-  console.log(`${count++} Running cron job...`)
+  logger.info('testing info logger')
+  logger.warn('testing warning logger')
+  logger.error('testing error logger')
+  logger.debug('testing debug logger')
+  console.info(`${count++} Running cron job...`)
   res.end()
 })
 
