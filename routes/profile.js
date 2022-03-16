@@ -2,7 +2,7 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-16 14:56:21
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-16 15:31:05
+ * @ Modified time: 2022-03-16 15:54:26
  * @ Description:
  */
 const router = require("express").Router()
@@ -15,11 +15,12 @@ router.get("/user/:email", (req, res) => {
     
     pool.query(query, [req.params.email], (error, results) => {
         if (!results[0]) {
-            let msg = "not found"
-            logger.warn("fail", msg)
+            let msg = `email ${req.params.email} not found`
+            logger.warn(msg)
+            res.status(404)
             res.json({ status: msg })
         } else {
-            logger.info("success", results[0])
+            logger.info(JSON.stringify(results[0]))
             res.json(results[0])
         }
     })
