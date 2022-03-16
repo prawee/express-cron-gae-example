@@ -2,9 +2,10 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-15 17:47:20
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-15 17:58:12
+ * @ Modified time: 2022-03-16 12:00:28
  * @ Description:
  */
+
 module.exports = function(options) {
     const winston = require("winston")
 
@@ -20,7 +21,7 @@ module.exports = function(options) {
     
     return function(req, res, next) {
         const data = {
-            message: 'this is logger working!'
+            message: 'this is logger working!',
         }
         logger.info('req from win logger ' + JSON.stringify(data))
         logger.warn(JSON.stringify(data))
