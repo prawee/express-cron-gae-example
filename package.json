@@ -1,5 +1,5 @@
 {
-  "name": "gcp-cronjob",
+  "name": "express-gae-example",
   "version": "1.0.0",
   "main": "server.js",
   "author": {
