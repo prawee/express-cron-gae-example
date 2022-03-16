@@ -1,2 +1,5 @@
 runtime: nodejs16
 service: schedule
+
+env_variables:
+  APP_ENV: production
