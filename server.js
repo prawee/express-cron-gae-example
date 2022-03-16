@@ -2,7 +2,7 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-08 01:29:25
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-09 01:39:34
+ * @ Modified time: 2022-03-16 14:23:13
  * @ Description: template for express with cron on gcp
  */
 
@@ -10,9 +10,13 @@
  * instance
  */
 require("dotenv").config()
+require('@google-cloud/trace-agent').start();
 const express = require("express")
 const mysql = require("mysql")
 const app = express()
+const logger = require("./logger/winston")
+// const testLogger = require("./logger/test")
+// const logger = require("./logger")
 
 /**
  * global variable
@@ -23,6 +27,8 @@ let count = 0
  * using middleware
  */
 app.use(express.json())
+// app.use(testLogger({ logger }))
+// app.use(logger({ name: 'schedule' }))
 
 /**
  * route
@@ -32,12 +38,16 @@ app.get("/", (req, res) => {
 })
 
 app.get("/cron", (req, res) => {
-  console.log(`${count++} Running cron job...`)
+  logger.info('testing info logger')
+  logger.warn('testing warning logger')
+  logger.error('testing error logger')
+  logger.debug('testing debug logger')
+  console.info(`${count++} Running cron job...`)
   res.end()
 })
 
 app.get("/user/:email", (req, res) => {
-  console.info(`[info]: ${JSON.stringify(req.params)}`)
+  // console.info(`[info]: ${JSON.stringify(req.params)}`)
   const query = "select id, name from users where email = ?"
   
   pool.query(query, [req.params.email], (error, results) => {
