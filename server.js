@@ -2,7 +2,7 @@
  * @ Author: Prawee Wongsa (prawee@hotmail.com)
  * @ Create Time: 2022-03-08 01:29:25
  * @ Modified by: Prawee@hotmial.com
- * @ Modified time: 2022-03-15 19:06:10
+ * @ Modified time: 2022-03-16 10:04:44
  * @ Description: template for express with cron on gcp
  */
 
@@ -10,6 +10,7 @@
  * instance
  */
 require("dotenv").config()
+require('@google-cloud/trace-agent').start();
 const express = require("express")
 const mysql = require("mysql")
 const app = express()
